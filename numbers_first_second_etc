@@ -1,0 +1,28 @@
+FIRST
+n = int(input())
+first = n
+while first >= 10:
+    first //= 10
+print(first)
+
+LAST
+n = int(input())
+last = n%10
+print(last)
+
+SECOND and all others
+n = int(input())
+# Convert to string to easily access characters USING LEN
+n_str = str(n)
+second_digit = int(n_str[1])
+print(second_digit)
+
+CHECK THE UNIQUENESS USING SET CONVERSION
+n=input()
+unique_digits = set(n)
+if len(unique_digits) == 1:
+    print("YES")
+else:
+    print("NO")
+
+
