@@ -1,0 +1,6 @@
+ABOVE ZERO
+df_zero_plus=df[df['Sales']>0]
+
+ASINS TO CHECK
+asins_to_check = ['B07CRLSXZZ', 'B07L8V8H45', 'B07BDMMQT6']
+filtered_asins = df_zero_plus[df_zero_plus['(Child) ASIN'].isin(asins_to_check)]
