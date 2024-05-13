@@ -1,0 +1,83 @@
+
+FUNCTION FIRST
+Define the BMI Calculation Function:
+This function fetches the user input from the entry fields, calculates the BMI, and displays it in a message box. If the input is invalid, it shows an error message.
+____________________________________________
+def calculate_bmi(weight, height):
+    """Calculate BMI given weight in kg and height in meters."""
+    return weight / (height ** 2)
+
+GUI USING TKINTER
+
+Create the Main Window:
+
+Use tk.Tk() to create the main application window.
+Add Labels and Entry Widgets:
+
+Create and pack labels and entry widgets for weight and height input.
+Add a Calculate Button:
+
+Create a button that triggers the calculate_bmi function when clicked.
+Run the Main Event Loop:
+
+Use root.mainloop() to start the event loop and display the GUI.
+Running the Application
+Save the script to a file, for example, bmi_calculator.py, and run it using Python:
+____________________________________________
+import tkinter as tk
+from tkinter import messagebox
+
+# Function to calculate BMI and show the result
+def calculate_bmi():
+    try:
+        weight = float(entry_weight.get())
+        height = float(entry_height.get())
+        bmi = weight / (height ** 2)
+        messagebox.showinfo("BMI Result", f"Your BMI is: {bmi:.2f}")
+    except ValueError:
+        messagebox.showerror("Input Error", "Please enter valid numbers for weight and height.")
+
+# Creating the main window
+root = tk.Tk()
+root.title("BMI Calculator")
+
+# Creating and placing the weight label and entry
+label_weight = tk.Label(root, text="Weight (kg):")
+label_weight.pack(padx=10, pady=5)
+
+entry_weight = tk.Entry(root)
+entry_weight.pack(padx=10, pady=5)
+
+# Creating and placing the height label and entry
+label_height = tk.Label(root, text="Height (meters):")
+label_height.pack(padx=10, pady=5)
+
+entry_height = tk.Entry(root)
+entry_height.pack(padx=10, pady=5)
+
+# Creating and placing the calculate button
+calculate_button = tk.Button(root, text="Calculate BMI", command=calculate_bmi)
+calculate_button.pack(padx=10, pady=20)
+
+# Running the main event loop
+root.mainloop()
+
+
+TO SHARE
+Create an Executable File
+For a more user-friendly approach, you can convert the Python script into an executable file (.exe for Windows, .app for macOS). 
+This way, the user doesn’t need to have Python installed.
+You can use tools like PyInstaller, cx_Freeze, or Py2exe for this. Here's how to do it using PyInstaller:
+
+Install PyInstaller:
+bash
+Copy code
+pip install pyinstaller
+
+______________________________________________________________
+Create the executable:
+bash
+Copy code
+pyinstaller --onefile --windowed bmi_calculator.py
+This command will create a standalone executable in the dist directory within your project folder.
+
