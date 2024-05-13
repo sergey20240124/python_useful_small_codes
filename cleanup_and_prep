@@ -1,0 +1,15 @@
+FILL EMPTY CELLS
+
+columns_to_fill = ['CTR', 'CPC']
+df2[columns_to_fill] = df2[columns_to_fill].fillna(0)
+
+GROUPPING
+
+weekly_business = df1.groupby(['Week', 'ASIN']).agg({
+    'Sessions': 'sum',
+    'Total Sales': 'sum'
+}).reset_index()
+
+MERGING
+
+merged_weekly = pd.merge(weekly_business, weekly_ads, on=['Week', 'ASIN'], how='inner')
